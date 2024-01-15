@@ -1,5 +1,5 @@
 {
-    "name": "NodeTask",
+    "name": "main",
     "version": "1.0.0",
     "description": "description",
     "main": "index.js",
