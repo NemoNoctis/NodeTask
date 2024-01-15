@@ -6,8 +6,9 @@ const { promisify } = require('util');
 const app = express();
 const writeFileAsync = promisify(fs.writeFile);
 
-const importantSourceUrl = 'http://slowpoke.desigens.com/json/1/7000';
-const unimportantSourceUrl = 'http://slowpoke.desigens.com/json/2/3000';
+const importantSourceUrl = 'https://jsonplaceholder.typicode.com/todos/1';
+const unimportantSourceUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+
 
 app.get('/', async (req, res) => {
   try {
