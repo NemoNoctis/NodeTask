@@ -1,1 +1,14 @@
-'npm i && npm start'
+{
+    "name": "NodeTask",
+    "version": "1.0.0",
+    "description": "description",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "axios": "^0.24.0"
+    }
+  }
+  
