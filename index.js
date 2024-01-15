@@ -11,7 +11,7 @@ const unimportantSourceUrl = 'http://slowpoke.desigens.com/json/2/3000';
 
 app.get('/', async (req, res) => {
   try {
-    const importantDataPromise = fetchData(importantSourceUrl, 6000);
+    const importantDataPromise = fetchData(importantSourceUrl, 10000); // Увеличенный таймаут
     const unimportantDataPromise = fetchData(unimportantSourceUrl, 6000);
 
     const [importantData, unimportantData] = await Promise.all([
