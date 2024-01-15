@@ -9,16 +9,13 @@ const writeFileAsync = promisify(fs.writeFile);
 const importantSourceUrl = 'https://jsonplaceholder.typicode.com/todos/1';
 const unimportantSourceUrl = 'https://jsonplaceholder.typicode.com/posts/1';
 
-
 app.get('/', async (req, res) => {
   try {
-    const importantDataPromise = fetchData(importantSourceUrl, 10000); // Увеличенный таймаут
-    const unimportantDataPromise = fetchData(unimportantSourceUrl, 6000);
+    const importantDataResponse = await fetchData(importantSourceUrl, 10000);
+    const unimportantDataResponse = await fetchData(unimportantSourceUrl, 6000);
 
-    const [importantData, unimportantData] = await Promise.all([
-      importantDataPromise,
-      unimportantDataPromise,
-    ]);
+    const importantData = JSON.stringify(importantDataResponse.data);
+    const unimportantData = JSON.stringify(unimportantDataResponse.data);
 
     res.send(`
       <div>
@@ -40,7 +37,7 @@ app.get('/', async (req, res) => {
 
 const fetchData = async (url, timeout) => {
   const response = await axios.get(url, { timeout });
-  return response.data;
+  return response;
 };
 
 const writeToLogFile = async (message) => {
